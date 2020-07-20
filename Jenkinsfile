@@ -3,7 +3,7 @@ agent none
 stages{
 stage('hello mavne'){
 steps{
-mvn "package"
+  sh "mvn --version"
 }
 }
 }

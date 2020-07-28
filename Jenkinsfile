@@ -10,6 +10,7 @@ pipeline {
       steps {
         withSonarQubeEnv('sonar') {
           sh 'mvn clean package sonar:sonar'
+          sh 'sleep 10'
         }
       }
     }
@@ -18,7 +19,6 @@ pipeline {
       steps { 
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           script {
-            sh 'sleep 30'
             def qualitygate = waitForQualityGate() 
             if (qualitygate.status != "OK") { 
               error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}" 

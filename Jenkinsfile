@@ -39,6 +39,6 @@ pipeline {
           sh 'ls ${WORKSPACE}/target/surefire-reports/unit-test'
       }
     }
-    }
   }
 }
+

@@ -16,9 +16,9 @@ pipeline {
     stage ("SonarQube analysis") { 
       agent none
       steps { 
-       
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           script {
+            sh 'sleep 30'
             def qualitygate = waitForQualityGate() 
             if (qualitygate.status != "OK") { 
               error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}" 

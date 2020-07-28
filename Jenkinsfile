@@ -31,7 +31,7 @@ pipeline {
       steps {
           sh 'printenv'
           sh 'echo "Saving logs to a new file in ${JENKINS_HOME}/LOGS folder..."'
-          sh 'cat ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER} >> ${BUILD_TAG}.txt'
+          sh 'cat ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log >> ${BUILD_TAG}.txt'
           sh 'pwd'
           sh 'python3 /usr/local/hello-world-spring-boot/generate.py ${BUILD_TAG}.txt'
           sh 'mkdir ${WORKSPACE}/target/surefire-reports/unit-test'

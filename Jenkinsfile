@@ -16,7 +16,7 @@ pipeline {
     stage ("SonarQube analysis") { 
       agent none
       steps { 
-        timeout(time: 3, unit: 'MINUTES'){
+        timeout(time: 10, unit: 'SECONDS'){
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
           script {
             def qualitygate = waitForQualityGate() 

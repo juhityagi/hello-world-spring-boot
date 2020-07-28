@@ -24,7 +24,9 @@ pipeline {
               error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}" 
             }
           }
-        }
+        }else {
+                                error 'the application is not  deployed as development version is null!'
+                            }
         }
       } 
     }

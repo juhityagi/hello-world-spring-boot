@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env Python 2.7.5
 import os
 import re
 import sys

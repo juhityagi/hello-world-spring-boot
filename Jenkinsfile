@@ -10,6 +10,7 @@ pipeline {
       steps {
         withSonarQubeEnv('sonar') {
           sh 'mvn clean package sonar:sonar'
+          sh 'sleep 10'
         }
       }
     }
@@ -24,6 +25,7 @@ pipeline {
             }
           }
         }
+        
       } 
     }
     stage('Saving Logs') {
